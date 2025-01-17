@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-
 const stylesFolder = path.join(__dirname, 'styles');
 const outputFolder = path.join(__dirname, 'project-dist');
 const outputFile = path.join(outputFolder, 'bundle.css');
@@ -22,5 +21,4 @@ async function summStyles() {
     console.error('Woops, something went wrong! Error:', error);
   }
 }
-
 summStyles();
