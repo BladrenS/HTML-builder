@@ -1,5 +1,16 @@
 const fs = require('fs/promises');
 const path = require('path');
+const folderPath = path.join(__dirname, 'files-copy');
+
+async function deleteFolder(folderPath) {
+  try {
+    await fs.access(folderPath);
+    await fs.rm(folderPath, { recursive: true, force: true });
+  } catch (err) {
+    console.log('Done');
+  }
+}
+deleteFolder(folderPath);
 
 async function copy() {
   try {
