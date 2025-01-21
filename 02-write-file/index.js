@@ -12,7 +12,7 @@ console.log('Hello! Ola! Write you message here! :)');
 
 readLine.on('line', (input) => {
   if (input.trim().toLowerCase() === 'exit') {
-    exitTask();
+    readLine.close();
   } else {
     writeStream.write(`${input}\n`);
     console.log('Got it! Write your next message or type "exit" to leave.');
@@ -25,10 +25,4 @@ function handleCtrlC() {
   writeStream.end(() => {
     readLine.close();
   });
-}
-
-function exitTask() {
-  console.log('That`s all? I`ll be glad to see you again! See ya! :)');
-  readLine.close();
-  writeStream.end(() => process.exit());
 }
