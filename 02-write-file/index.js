@@ -19,12 +19,11 @@ readLine.on('line', (input) => {
   }
 });
 
-process.on('SIGINT', handleCtrlC);
+readLine.on('close', handleCtrlC);
 function handleCtrlC() {
   console.log('That`s all? I`ll be glad to see you again! See ya! :)');
   writeStream.end(() => {
     readLine.close();
-    process.exit(0);
   });
 }
 
